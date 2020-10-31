@@ -9,6 +9,10 @@ import java.util.Scanner;
  */
 public class EmployeePayrollService {
 
+	public enum IOService {
+		CONSOLE_IO, FILE_IO
+	}
+
 	private ArrayList<EmployeePayroll> employeePayrollList;
 
 	public EmployeePayrollService(ArrayList<EmployeePayroll> employeePayrollList) {
@@ -32,7 +36,7 @@ public class EmployeePayrollService {
 	/**
 	 * prints the data in console
 	 */
-	private void writeEmployeePayroll() {
+	void writeEmployeePayrollData(IOService inputReader) {
 		System.out.println("\nWriting Employee Payroll Data to Console\n" + employeePayrollList);
 	}
 
@@ -41,7 +45,7 @@ public class EmployeePayrollService {
 		EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
 		Scanner consoleInputReader = new Scanner(System.in);
 		employeePayrollService.readEmployeePayroll(consoleInputReader);
-		employeePayrollService.writeEmployeePayroll();
+		employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
 
 	}
 

@@ -12,13 +12,12 @@ import org.junit.Test;
 
 public class NIOFileAPITest {
 
-	private static final String HOME = System.getProperty("user.home");
-	private static final String PLAY_WITH_NIO = "TempPlayGround";
+	static final String HOME = System.getProperty("user.home");
+	static final String PLAY_WITH_NIO = "TempPlayGround";
 
 	/**
 	 * checks for existing file and returns true
 	 */
-	@Ignore
 	@Test
 	public void givenPathToCheckForHomeDirectory_WhenAnalyse_ShouldReturnTrue() {
 
@@ -30,7 +29,6 @@ public class NIOFileAPITest {
 	/**
 	 * checks for non existing file and should return true
 	 */
-	@Ignore
 	@Test
 	public void deleteFileAndCheckForItsExistence_WhenAanalyse_ShouldReturnTrue() throws IOException {
 
@@ -44,7 +42,6 @@ public class NIOFileAPITest {
 	/**
 	 * creates a directory and check for its existence and returns true
 	 */
-	@Ignore
 	@Test
 	public void createdDirectoryAndCheckForItsExistence_WhenAnalyse_ShouldReturnTrue() throws IOException {
 
@@ -53,7 +50,6 @@ public class NIOFileAPITest {
 		Assert.assertTrue(Files.exists(playPath));
 	}
 
-	@Ignore
 	@Test
 	public void checkForNonExistingFileAndCreating_WhenAnalyse_ShouldReturnTrue() {
 
@@ -68,7 +64,6 @@ public class NIOFileAPITest {
 		});
 	}
 
-	@Ignore
 	public void listFilesAndDirectories() throws IOException {
 
 		Path playPath = Paths.get(PLAY_WITH_NIO);
@@ -78,10 +73,5 @@ public class NIOFileAPITest {
 				.forEach(System.out::println);
 	}
 
-	@Test
-	public void givenADirectoryWhenWatchedListsAllTheActivities() throws IOException {
-		Path dir = Paths.get(HOME + "\\" + PLAY_WITH_NIO);
-		Files.list(dir).filter(Files::isRegularFile).forEach(System.out::println);
-		new JavaWatchService(dir).processEvents();
-	}
+	
 }
