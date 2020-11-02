@@ -3,13 +3,13 @@ package EmployeePayrollService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeePayrollFileIOService {
 
 	public static final String PAYROLL_FILE = "employee-payroll-file.txt";
 
-	public void writeData(ArrayList<EmployeePayroll> employeeList) {
+	public void writeData(List<EmployeePayroll> employeeList) {
 		StringBuffer employeeBufferString = new StringBuffer();
 		employeeList.forEach(employee -> {
 			String employeeDataString = employee.toString().concat("\n");
@@ -18,6 +18,7 @@ public class EmployeePayrollFileIOService {
 
 		try {
 			Files.write(Paths.get(PAYROLL_FILE), employeeBufferString.toString().getBytes());
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -30,5 +31,12 @@ public class EmployeePayrollFileIOService {
 		} catch (IOException e) {
 		}
 		return countOfEntries;
+	}
+
+	public void printEmployeePayrolls() {
+		try {
+			Files.lines(Paths.get(PAYROLL_FILE)).forEach(System.out::println);
+		} catch (IOException e) {
+		}
 	}
 }

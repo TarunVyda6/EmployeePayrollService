@@ -1,0 +1,3 @@
+EmployeePayroll [id=1, name=dhoni, salary=800000.0]
+EmployeePayroll [id=2, name=yuvraj, salary=850000.0]
+EmployeePayroll [id=3, name=ganguly, salary=900000.0]
